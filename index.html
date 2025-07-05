@@ -1,0 +1,505 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Brochure.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://api.fontshare.com/v2/css?f[]=rosaline@400&f[]=boska@200,350&display=swap" rel="stylesheet">
+    <style>
+
+.video-background,
+.backround-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  overflow: hidden;
+}
+
+
+    .video-background video .backround-video {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+
+        .content {
+            position: relative;
+            z-index: 1; /* Place content above the video */
+            color: white; /* Text color */
+            text-align: center;
+            padding: 20px;
+        }
+
+  
+
+    
+
+     button {
+       display: block;
+       margin: 0 auto;
+       margin-top: 100px;
+       margin-bottom: 50px;
+       font-size: 2vw;
+       padding:10px;
+       border-radius: 10px;
+       border: none;
+       background: rgb(0,0,0,0.5);
+       color: white;
+       font-family: 'Boska', serif;
+       font-weight: bold;
+     }
+
+     h1{
+        padding-top: 50px;
+        text-align: center;
+        font-family: 'Rosaline', cursive;
+        font-size: 6vw;
+        color: #df9f55;
+        text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+        
+     }
+     p {
+        color: #b8d9fa;
+        padding-bottom: 20px;
+        font-size: 2vw;
+         font-family: 'Boska', serif;
+         font-weight: bolder;
+         text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+     text-align: center;
+     }
+    
+     .heading {
+      
+        border-radius: 10px;
+        display:block;
+        margin-bottom: 0;
+        padding-bottom: 0;
+       
+        
+     }
+    .flip {
+      perspective: 800px;
+      position: relative;
+      text-align: center;
+      max-width: 180px;
+      height: 300px;
+      margin: 50px auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    
+
+   .card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  border-radius: 16px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+}
+
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1),
+              inset 0 -1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.front {
+  background: linear-gradient(88deg, #ffffff, #ffbace);
+}
+
+   .front img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+.back {
+  background: linear-gradient(80deg, #f06c7d, #fefffa);
+  transform: rotateY(180deg);
+  color: black;
+  font-family: 'Boska', serif;
+  font-weight: bold;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  box-shadow: inset 0 1px 5px rgba(252, 179, 240, 0.493),
+              inset 0 -1px 5px rgba(132, 196, 248, 0.705);
+}
+.gloss {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: linear-gradient(120deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.03) 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+    
+
+    .img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: block;
+      
+      
+    }
+
+    .container {
+        margin-bottom: 100px;
+        margin-top: 0;
+    }
+
+    .custom-footer {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-family: 'Boska', serif;
+  font-size: 1.2vw;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
+}
+
+    
+ @media (max-width: 576px) {
+  .flip {
+    max-width: 140px;   /* Shrink the entire card */
+    height: auto;
+  }
+
+  button{
+    margin-bottom: 10px;
+  }
+
+.img img {
+    width: 100%;
+    height: auto;
+  }
+
+  .card, .front, .back {
+    height: auto;
+  }
+
+  br {
+    display: none;
+  }
+
+  .video-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        
+.container{
+  margin-bottom: 0;
+}
+
+button{
+  margin-top: 20px;
+}
+
+.back {
+  padding: 5px;
+ font-size: 6px
+}
+
+ .card, .front, .back {
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .custom-footer {
+    font-size: 10px;
+    padding: 8px 0;
+    margin-top: 50px;
+  }
+
+ 
+}
+ 
+
+
+  </style>
+</head>
+<body class="body">
+    <button>
+        Dark mode
+    </button>
+<video autoplay loop muted playsinline class="backround-video d-none">
+        <source src="https://dl.dropboxusercontent.com/scl/fi/kjz7szx1eiyf57eahibey/moonlight-night-sakura-river-moewalls-com.mp4?rlkey=y88tdjgmvgnoa1dzbl3kb9wpv&st=zo16qf4d
+
+">
+      
+    </video>
+    
+
+     <video autoplay loop muted playsinline  class="video-background">
+        <source src="https://dl.dropboxusercontent.com/scl/fi/bjcz2v4wp1zajf6hxcpzc/anime-girl-looking-at-sunset-sakura-torii-gate-moewalls-com.mp4?rlkey=tvssy99zcprd75kobvqzsw4rp&st=9o9prgip" type="video/mp4">
+
+    </video>
+
+    <div class=" box mx-4">
+<div class="heading mb-2 px-3">
+        <h1 class="px-3 " ><span style="font-size: 10vw;">P</span>redictions for each sign</h1>
+        <p> Hover over your sign to reveal your prediction for the month of July</p>
+</div>
+    </div>
+
+<br>
+<br>
+
+<div class="container ">
+<div class="row">
+<div class="col flip">
+  <div class="card">
+    <div class="gloss"></div>
+    <div class="front">
+      <div class="img">
+        <img src="https://cdn-icons-png.flaticon.com/128/1885/1885453.png">
+      </div>
+    </div>
+    <div class="back">
+   ARIES <br> 🔥 July sparks a fire in your ambition. A new opportunity could launch your goals forward — but don’t rush. Let passion lead, not pressure.
+    </div>
+  </div>
+</div>
+<div class="col flip">
+  <div class="card">
+    <div class="gloss"></div>
+    <div class="front">
+      <div class="img">
+        <img src="https://cdn-icons-png.flaticon.com/128/1885/1885492.png">
+      </div>
+    </div>
+    <div class="back">
+    TAURUS<br> 💖 July encourages strengthening bonds. You will also be reasessing close relationships. Financial opportunities may arise, but patience is key.
+    </div>
+  </div>
+</div>
+<div class="col flip">
+  <div class="card">
+    <div class="gloss"></div>
+    <div class="front">
+      <div class="img">
+        <img src="https://cdn-icons-png.flaticon.com/128/1994/1994915.png">
+      </div>
+    </div>
+    <div class="back">
+     GEMINI <br> 🗣️ Your curiosity peaks this month. Great time to pick up new skills or network. Avoid spreading yourself too thin—focus on quality connections and clear communication.
+    </div>
+  </div>
+</div>
+
+<div class="col flip">
+  <div class="card">
+    <div class="gloss"></div>
+    <div class="front">
+      <div class="img">
+        <img src="https://cdn-icons-png.flaticon.com/128/3184/3184958.png">
+      </div>
+    </div>
+    <div class="back">
+    CANCER <br> 🌊 Emotions surface this month. Reflect inward and prioritize self-care. A home or family matter may bring unexpected clarity.
+    </div>
+  </div>
+</div></div><div class="row">
+<div class="col flip">
+  <div class="card">
+    <div class="gloss"></div>
+    <div class="front">
+      <div class="img">
+        <img src="https://cdn-icons-png.flaticon.com/128/1885/1885431.png">
+      </div>
+    </div>
+    <div class="back">
+    LEO <br> 🌟 Your energy is magnetic! July is your stage. Lead boldly, but stay humble. Creative pursuits shine brightest under your light.
+    </div>
+  </div>
+</div>
+<div class="col flip">
+  <div class="card">
+    <div class="gloss"></div>
+    <div class="front">
+      <div class="img">
+        <img src="https://cdn-icons-png.flaticon.com/128/1885/1885340.png" alt="Front">
+      </div>
+    </div>
+    <div class="back">
+    VIRGO <br> 🧩 Details matter. July brings clarity to your routines, work, and wellness. A small change could have a big impact — stay open.
+    </div>
+  </div> 
+</div>
+<div class="col flip">
+  <div class="card">
+    <div class="gloss"></div>
+    <div class="front">
+      <div class="img">
+        <img src="https://cdn-icons-png.flaticon.com/128/1885/1885332.png" alt="Front">
+      </div>
+    </div>
+    <div class="back">
+     LIBRA <br> 🎭 Harmony is your superpower. A social or romantic spark may emerge. Speak your truth — balance requires honesty this month.
+    </div>
+  </div>
+</div>
+<div class="col flip">
+  <div class="card">
+    <div class="gloss"></div>
+    <div class="front">
+      <div class="img">
+        <img src="https://cdn-icons-png.flaticon.com/128/8062/8062843.png" alt="Front">
+      </div>
+    </div>
+    <div class="back">
+    SCORPIO  🔮 Transformation is your theme. July may challenge you to let go of control. Trust the process — growth follows release.
+    </div>
+  </div>
+</div></div>
+<div class="row">
+    <div class="col flip">
+  <div class="card">
+    <div class="gloss"></div>
+    <div class="front">
+      <div class="img">
+        <img src="https://cdn-icons-png.flaticon.com/128/8924/8924678.png" alt="Front">
+      </div>
+    </div>
+    <div class="back">
+    SAGITARIUS 🚀 Restlessness rises. You’re craving adventure or expansion — travel or explore something new. Just keep it grounded.
+    </div>
+ 
+</div></div>
+<div class="col flip">
+  <div class="card">
+    <div class="gloss"></div>
+    <div class="front">
+      <div class="img">
+        <img src="https://cdn-icons-png.flaticon.com/128/1885/1885325.png" >
+      </div>
+    </div>
+    <div class="back">
+    CAPRICORN  💼 Career momentum builds. Recognition or responsibility may rise. Keep your vision clear and your schedule tighter.
+    </div>
+  </div>
+</div><div class="col flip">
+  <div class="card">
+    <div class="gloss"></div>
+    <div class="front">
+      <div class="img">
+        <img src="https://cdn-icons-png.flaticon.com/128/8924/8924668.png">
+      </div>
+    </div>
+    <div class="back">
+     AQUARIUS 🌌 Step back and look at the big picture. July brings insight — a fresh perspective or philosophical shift could inspire change.
+    </div>
+  </div>
+</div>
+<div class="col flip">
+  <div class="card">
+    <div class="gloss"></div>
+    <div class="front">
+      <div class="img">
+        <img src="https://cdn-icons-png.flaticon.com/128/3201/3201875.png"> 
+      </div>
+    </div>
+    <div class="back">
+     PISCES 💫 Intuition is strong. Let inner guidance lead you this month. A dream, idea, or emotional truth may reveal a hidden opportunity.
+    </div>
+  </div>
+</div>
+</div>
+</div> </div>
+
+</div>
+<footer class="custom-footer">
+  Created by Zimone Harmse
+</footer>
+
+<br>
+<br>
+<br>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $('.flip').hover(
+    function () {
+      $(this).find('.card').addClass('flipped');
+    },
+    function () {
+      $(this).find('.card').removeClass('flipped');
+    }
+  );
+
+
+</script>
+
+<script>
+  const button = document.querySelector("button");
+  const currentVideo = document.querySelector(".video-background");
+  const newVideo = document.querySelector(".backround-video");
+
+  button.addEventListener("click", () => {
+    // Hide the current video
+    currentVideo.classList.add("d-none");
+    
+    // Show the new video
+    newVideo.classList.remove("d-none");
+    
+    // Play the new video
+    newVideo.play();
+  });
+</script>
+
+
+
+
+</body>
+</html>
