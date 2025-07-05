@@ -32,7 +32,7 @@
         .content {
             position: relative;
             z-index: 1; 
-            color: white; 
+            color: white;
             text-align: center;
             padding: 20px;
         }
@@ -115,9 +115,6 @@
   border-radius: 16px;
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
   background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
-  flex: 1 1 100%; 
-  max-width: 100%;
-  box-sizing: border-box;
 }
 
     .card.flipped {
@@ -125,7 +122,7 @@
     }
 
     .front, .back {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
@@ -207,7 +204,7 @@
     
  @media (max-width: 576px) {
   .flip {
-    max-width: 140px;   
+    max-width: 140px;   /* Shrink the entire card */
     height: auto;
   }
 
@@ -266,39 +263,8 @@ button{
     margin-top: 50px;
   }
 
-      h1{
-        padding-top: 50px;
-        text-align: center;
-        font-family: 'Rosaline', cursive;
-        font-size: 6vw;
-        color: #df9f55;
-        text-shadow:
-    -1px -1px 0 black,
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;
-        
-     }
-     p {
-        color: #b8d9fa;
-        padding-bottom: 20px;
-        font-size: 2vw;
-         font-family: 'Boska', serif;
-         font-weight: bolder;
-         text-shadow:
-    -1px -1px 0 black,
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;
-     text-align: center;
-     }
-
-
-      .card-text {
-    font-size: 14px; 
-    line-height: 1.4;
-    padding: 10px; 
-    word-break: break-word;
+  .flip{
+    margin-bottom: 80px;
   }
 
  
